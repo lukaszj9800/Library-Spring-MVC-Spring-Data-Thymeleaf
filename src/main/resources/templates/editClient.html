@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit client</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+<form method="post" th:action="@{/editClient}" th:object="${clientToEdit}">
+    <table border="1" class="table table-dark">
+        <tr>
+            <th>Edit chosen client</th>
+        </tr>
+        <tr>
+            <td>
+                <input type="hidden" th:value="*{id}" th:field="*{id}">
+                <p>Firstname: <input type="text" th:value="*{firstname}" th:field="*{firstname}"></p>
+                <p>Lastname: <input type="text" th:value="*{lastname}" th:field="*{lastname}"></p>
+                <input type="hidden" th:value="*{loans}" th:field="*{loans}">
+                <input type="submit" value="Edit">
+            </td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>

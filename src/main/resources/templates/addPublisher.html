@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Add publisher</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+<form method="post" th:action="@{/addPublisher}" th:object="${publisher}">
+    <table border="1" class="table table-dark">
+        <tr>
+            <th>Add publisher</th>
+        </tr>
+        <tr>
+            <td>
+                <p>Name:<input type="text" th:field="*{name}"></p>
+                <input type="submit" value="Add"/>
+            </td>
+        </tr>
+    </table>
+</form>
+<form method="get" th:action="@{/}">
+    <button type="submit">Back</button>
+</form>
+
+</body>
+</html>

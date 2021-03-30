@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Results</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+
+<div th:if="not ${findBooks.isEmpty()}">
+    <table border="1" class="table table-dark">
+        <tr>
+            <th>Id</th>
+            <th>ISBN</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Publisher</th>
+            <th>Year</th>
+            <th>Description</th>
+            <th>Action</th>
+        </tr>
+        <tr th:each="singleBook: ${findBooks}" th:object="${singleBook}">
+            <td th:text="*{id}">1</td>
+            <td th:text="*{isbn}">1234567890123</td>
+            <td th:text="*{title}">Hobbit</td>
+            <td th:text="*{author}">J.R.R Tolkien</td>
+            <td th:text="*{publisher}">Zielona Sowa</td>
+            <td th:text="*{year}">1999</td>
+            <td th:text="*{description}">Bajka o kocie</td>
+            <td>
+                <form method="post" th:action="@{/delete}">
+                    <input type="hidden" th:value="${singleBook.id}" name="id">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+    <form method="get" th:action="@{/}">
+        <input type="submit" value="Back to home page">
+    </form>
+    <form method="get" th:action="@{/findBook}">
+        <input type="submit" value="Back">
+    </form>
+</div>
+
+
+
+</body>
+</html>

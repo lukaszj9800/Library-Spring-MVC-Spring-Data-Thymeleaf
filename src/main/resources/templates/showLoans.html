@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Show all loans</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+<table border="1" class="table table-dark">
+    <tr>
+        <th>ID</th>
+        <th>Client</th>
+        <th>Date of loan</th>
+        <th>Date of return</th>
+        <th>Books</th>
+        <th>Action</th>
+    </tr>
+    <tr th:each="singleLoan: ${allLoans}" th:object="${singleLoan}">
+        <td th:text="*{id}">1</td>
+        <td th:text="*{client}">Adam Kowalski</td>
+        <td th:text="*{dateOfLoan}">12-03-2021</td>
+        <td th:text="*{dateOfReturn}">15-03-2021</td>
+        <td th:text="*{books}">Hobbit, Harry Potter</td>
+        <td>
+            <form method="post" th:action="@{/deleteLoan}">
+                <input type="hidden" th:value="${singleLoan.id}" name="id">
+                <button type="submit">Delete</button>
+            </form>
+            <form method="get" th:action="@{/editLoan}">
+                <input type="hidden" th:value="${singleLoan.id}" name="id">
+                <button type="submit">Edit</button>
+            </form>
+        </td>
+    </tr>
+</table>
+
+
+
+<form method="get" th:action="@{/}">
+    <button type="submit">Back</button>
+</form>
+
+</body>
+</html>

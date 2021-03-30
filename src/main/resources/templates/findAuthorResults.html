@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Results</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+<h1 th:text="${message}">Find</h1>
+<table border="1" class="table table-dark">
+    <tr>
+        <th>ID</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Books</th>
+        <th>Actions</th>
+    </tr>
+    <tr th:each="singleAuthor: ${findAuthors}" th:object="${singleAuthor}">
+        <td th:text="*{id}">1</td>
+        <td th:text="*{firstname}">Lukasz</td>
+        <td th:text="*{lastname}">Jagiela</td>
+        <td th:text="*{books}">Hobbit</td>
+        <td>
+            <form method="post" th:action="@{/deleteAuthor}">
+                <input type="hidden" th:value="${singleAuthor.id}" name="id">
+                <button type="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+</table>
+<form method="get" th:action="@{/findAuthor}">
+    <input type="submit" value="Back">
+</form>
+<form method="get" th:action="@{/}">
+    <input type="submit" value="Back to home page">
+</form>
+
+</body>
+</html>

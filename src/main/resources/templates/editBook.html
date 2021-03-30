@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit chosen book</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+<form action="#" method="post" th:action="@{/editBook}" th:object="${bookToEdit}">
+    <table border="1" class="table table-dark">
+        <tr>
+            <th>Edit chosen book:</th>
+        </tr>
+        <tr>
+            <td>
+                <input type="hidden" th:value="*{id}" th:field="*{id}"/>
+                <p>ISBN: <input type="text" th:value="*{isbn}" th:field="*{isbn}"/></p>
+                <p>Title: <input type="text" th:value="*{title}" th:field="*{title}"/></p>
+                <p>Author ID: <input type="text" th:value="*{author}" th:field="*{author}"/></p>
+                <p>Publisher ID: <input type="text" th:value="*{publisher}" th:field="*{publisher}"/></p>
+                <p>Year: <input type="text" th:value="*{year}" th:field="*{year}"/></p>
+                <p>Description: <input type="number" th:value="*{description}" th:field="*{description}"/></p>
+                <input type="submit" value="Edit"/>
+            </td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>

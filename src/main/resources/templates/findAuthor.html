@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Find author</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+<table border="1" class="table table-dark">
+    <tr>
+        <th>Search author</th>
+    </tr>
+    <tr>
+        <td>
+            <form method="post" th:action="@{/findAuthor}" th:object="${authors}">
+                <p>Firstname <input type="text" th:field="*{firstname}"></p>
+                <p>Lastname: <input type="text" th:field="*{lastname}"></p>
+                <input type="submit" value="Find">
+            </form>
+        </td>
+    </tr>
+</table>
+
+<form method="get" th:action="@{/showAllAuthors}">
+    <input type="submit" value="Back">
+</form>
+</body>
+</html>

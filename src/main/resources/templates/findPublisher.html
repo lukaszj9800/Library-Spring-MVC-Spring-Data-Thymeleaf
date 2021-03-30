@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Find publisher</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+<table border="1" class="table table-dark">
+    <tr>
+        <th>Find publisher</th>
+    </tr>
+    <tr>
+        <td>
+            <form method="post" th:action="@{/findPublisher}" th:object="${publisher}">
+                <p>Name: <input type="text" th:field="*{name}"></p>
+                <input type="submit" value="Find">
+            </form>
+        </td>
+    </tr>
+</table>
+
+<form method="get" th:action="@{/showPublishers}">
+    <input type="submit" value="Back">
+</form>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Find client results</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+<table border="1" class="table table-dark">
+    <tr>
+        <th>ID</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Loans ID</th>
+        <th>Action</th>
+    </tr>
+    <tr th:each="singleClient: ${findResults}" th:object="${singleClient}">
+        <td th:text="*{id}">1</td>
+        <td th:text="*{firstname}">Jan</td>
+        <td th:text="*{lastname}">Kowalski</td>
+        <td th:text="*{loans}">1</td>
+        <td>
+            <form method="post" th:action="@{/deleteClient}">
+                <input type="hidden" th:value="${singleClient.id}" name="id">
+                <button type="submit">Delete</button>
+            </form>
+
+            <form method="get" th:action="@{/editClient}">
+                <input type="hidden" th:value="${singleClient.id}" name="id">
+                <button type="submit">Edit</button>
+            </form>
+        </td>
+    </tr>
+</table>
+
+<form method="get" th:action="@{/showClients}">
+    <button type="submit">Back</button>
+</form>
+
+</body>
+</html>

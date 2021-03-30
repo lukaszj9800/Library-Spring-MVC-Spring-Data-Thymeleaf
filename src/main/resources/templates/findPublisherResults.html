@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Find results</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+<table border="1"class="table table-dark">
+    <tr>
+        <th>Name</th>
+        <th>Books</th>
+        <th>Action</th>
+    </tr>
+    <tr th:each="singlePublisher: ${publisher}" th:object="${singlePublisher}">
+        <td th:text="*{name}">Zielona sowa</td>
+        <td th:text="*{books}">Hobbit</td>
+        <td>
+            <form method="post" th:action="@{/deletePublisher}">
+                <input type="hidden" th:value="${singlePublisher.id}" name="id">
+                <button type="submit">delete</button>
+            </form>
+        </td>
+    </tr>
+</table>
+
+<form method="get" th:action="@{/findPublisher}">
+    <input type="submit" value="Back">
+</form>
+
+<form method="get" th:action="@{/}">
+    <input type="submit" value="Back to home page">
+</form>
+
+</body>
+</html>
