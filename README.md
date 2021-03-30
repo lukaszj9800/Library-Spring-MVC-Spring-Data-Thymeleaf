@@ -8,4 +8,4 @@ It is a library web application project using technologies such as: Spring MVC, 
 - Add, edit and delete authors
 - Add, edit and delete loans
 ## Jak wygląda?
-<img src="https://github.com/LukaszJagiela/2D-Game-Pygame/blob/master/game-gif.gif" width="900" height= "600"/>
+<img src="https://github.com/lukaszj9800/Library-Spring-MVC-Spring-Data-Thymeleaf/sample.png" width="900" height= "600"/>
