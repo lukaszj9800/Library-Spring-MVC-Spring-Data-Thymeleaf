@@ -1,5 +1,5 @@
 # Library-Spring-MVC-Spring-Data-Thymeleaf
-It is a library application project using technologies such as: Spring MVC, Spring Data and Thymeleaf
+It is a library web application project using technologies such as: Spring MVC, Spring Data and Thymeleaf
 ## Possibility of application:
 - Add, edit and delete books
 - Add, edit and delete authors
